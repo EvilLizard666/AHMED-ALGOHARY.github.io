@@ -24,7 +24,6 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
         }
 
         .container {
@@ -94,22 +93,10 @@
             margin-bottom: 12px;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-category strong {
-            color: var(--accent-color);
-            display: block;
-            margin-bottom: 5px;
-        }
-
         .achievement-box {
             border-left: 4px solid var(--text-color);
             background: rgba(0, 255, 65, 0.05);
-            padding: 10px 15px;
+            padding: 15px;
             margin-bottom: 20px;
         }
 
@@ -117,10 +104,15 @@
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
-            font-size: 0.9rem;
-            margin-top: 10px;
+            font-size: 0.85rem;
+            margin-top: 15px;
         }
         
+        .platform-link {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
         footer {
             text-align: center;
             margin-top: 50px;
@@ -141,97 +133,87 @@
     <div class="container">
         
         <header>
-            <span class="terminal-prompt">root@kali:~# ./display_resume.sh</span>
+            <span class="terminal-prompt">root@kali:~# whoami</span>
             <h1 class="glitch-name blinking-cursor">AHMED ALGOHARY</h1>
             <p style="color: var(--dim-color);">PENETRATION TESTER | RED TEAMER | MALWARE ANALYST</p>
             
             <div class="contact-info">
                 <span>📍 Abu Dhabi, UAE</span>
-                <span>📧 <a href="mailto:hishama58@yahoo.com">hishama58@yahoo.com</a></span>
+                <span>📧 <a href="mailto:hishama58@yahoo.com">Email</a></span>
                 <span>📞 +971 52 299 6331</span>
                 <span>💻 <a href="https://github.com/EvilLizard666" target="_blank">GitHub</a></span>
-                <span>🔗 <a href="#">LinkedIn</a></span>
+                <span>🎯 <a href="https://app.hackthebox.com/public/users/94440" target="_blank">HackTheBox</a></span>
+                <span>🛡️ <a href="https://tryhackme.com/p/qoqo1998" target="_blank">TryHackMe</a></span>
             </div>
         </header>
 
         <section>
-            <h2>01_SUMMARY</h2>
-            <p>
-                Cybersecurity enthusiast with hands-on experience in penetration testing, vulnerability assessment, and malware analysis. 
-                Proficient in red teaming, ethical hacking, and incident response with a strong foundation in web, network, and Active Directory security.
-            </p>
-        </section>
-
-        <section>
-            <h2>02_NOTABLE_ACHIEVEMENTS</h2>
+            <h2>01_NOTABLE_ACHIEVEMENTS</h2>
             <div class="achievement-box">
-                <p>🏆 <strong>HackTheBox Pro Hacker:</strong> Ranked 3rd in Egypt (Best Global Rank: 293)</p>
-                <p>🏆 <strong>TryHackMe:</strong> Top 1% globally</p>
-                <p>🐛 <strong>CVE Contribution:</strong> Discovered & reported CVE-2024-0852</p>
+                <p>🏆 <strong>HackTheBox:</strong> Ranked 3rd in Egypt | Global Rank: 293 
+                    [<a href="https://app.hackthebox.com/public/users/94440" target="_blank">View Profile</a>]</p>
+                <p>🏆 <strong>TryHackMe:</strong> Top 1% Globally 
+                    [<a href="https://tryhackme.com/p/qoqo1998" target="_blank">View Profile</a>]</p>
+                <p>🐛 <strong>CVE Contribution:</strong> Discovered & reported <strong>CVE-2024-0852</strong> (WPScan Vulnerability)</p>
             </div>
         </section>
 
         <section>
-            <h2>03_TECHNICAL_SKILLS</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <strong>[ PENETRATION TESTING ]</strong>
-                    Web, Network, Active Directory, Android
-                </div>
-                <div class="skill-category">
-                    <strong>[ SECURITY TOOLS ]</strong>
-                    Burp Suite, Metasploit, Nmap, Aircrack-ng, Hydra, Hashcat, Nessus, SQLmap
-                </div>
-                <div class="skill-category">
-                    <strong>[ SCRIPTING ]</strong>
-                    Python, Bash, PowerShell, C, C++, PHP, JavaScript
-                </div>
-            </div>
+            <h2>02_TECHNICAL_SKILLS</h2>
+            <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; list-style: none; padding: 0;">
+                <li>[+] Web & Network Pentesting</li>
+                <li>[+] Active Directory Attacks</li>
+                <li>[+] Malware Analysis</li>
+                <li>[+] Python / Bash / PowerShell</li>
+                <li>[+] Burp Suite / Metasploit</li>
+                <li>[+] Android Pentesting</li>
+            </ul>
         </section>
 
         <section>
-            <h2>04_CERTIFICATIONS</h2>
+            <h2>03_CERTIFICATIONS</h2>
             <ul>
                 <li><strong>eCPPT</strong> - Certified Professional Penetration Tester</li>
                 <li><strong>eJPT</strong> - Certified Junior Penetration Tester</li>
                 <li><strong>HTB Dante Pro Lab</strong> - Certification</li>
                 <li><strong>PNPT/PEH</strong> - Practical Ethical Hacking</li>
+                <li><strong>TrendMicro & CyberTalents</strong> - Cybersecurity Bootcamp</li>
             </ul>
         </section>
 
         <section>
-            <h2>05_PROFESSIONAL_EXPERIENCE</h2>
+            <h2>04_EXPERIENCE</h2>
             <div style="margin-bottom: 20px;">
-                <h3 style="margin: 0; color: var(--text-color);">Security-Meter (Remote)</h3>
-                <span style="color: var(--dim-color);">Penetration Testing Intern | July 2022 - Dec 2022</span>
+                <h3 style="margin: 0; color: var(--text-color);">Security-Meter</h3>
+                <span style="color: var(--dim-color);">Penetration Testing Intern | 2022</span>
                 <ul>
-                    <li>Conducted web penetration tests using advanced techniques.</li>
-                    <li>Performed Active Directory attacks (Kerberoasting, NTLM Relay).</li>
+                    <li>Conducted web penetration tests (OAuth bypass, DOM-XSS).</li>
+                    <li>Executed AD attacks (Kerberoasting, NTLM Relay).</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h2>06_PROJECTS & WRITE-UPS</h2>
+            <h2>05_WRITE-UPS</h2>
             <ul>
                 <li>
-                    <strong>Malware Analysis:</strong> 
+                    <strong>[Analysis]</strong> 
                     <a href="https://medium.com/@ahmedhisham_66968/manage-facebook-ads-strategy-exe-669304f9f541" target="_blank">
-                        Uncovering the Threat Behind 'Manage Facebook ads strategy.exe' (Nova Stealer v12.5)
+                        Nova Stealer v12.5 Malware Analysis
                     </a>
                 </li>
                 <li>
-                    <strong>Database Exploitation:</strong> 
+                    <strong>[Exploit]</strong> 
                     <a href="https://medium.com/@ahmedhisham_66968/dumping-full-db-through-apache-superset-automation-4d3b6dd25fa9" target="_blank">
-                        Dumping Full Databases through Apache Superset Automation
+                        Apache Superset Database Dumping
                     </a>
                 </li>
             </ul>
         </section>
 
         <footer>
-            <p>EOF -- SYSTEM HALTED</p>
-            <p>&copy; 2026 Ahmed Algohary. Hosted on GitHub Pages.</p>
+            <p>CONSOLIDATING LOGS... SUCCESS</p>
+            <p>&copy; 2026 Ahmed Algohary</p>
         </footer>
 
     </div>
