@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Algohary | Penetration Tester</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0d1117; /* GitHub Dark Dim or Pure Black #000 */
+            --text-color: #00ff41; /* Classic Matrix Green */
+            --accent-color: #ffffff; /* White for headers */
+            --dim-color: #8b949e;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--dim-color);
+            padding-bottom: 5px;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* Header / Hero Section */
+        header {
+            margin-bottom: 50px;
+            border: 2px solid var(--text-color);
+            padding: 20px;
+            box-shadow: 0 0 10px var(--text-color);
+        }
+
+        .terminal-prompt {
+            color: var(--dim-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .glitch-name {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .blinking-cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category strong {
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Achievements Box */
+        .achievement-box {
+            border-left: 4px solid var(--text-color);
+            background: rgba(0, 255, 65, 0.05);
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: var(--dim-color);
+            border-top: 1px solid var(--dim-color);
+            padding-top: 20px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .glitch-name { font-size: 1.8rem; }
+            .contact-info { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <span class="terminal-prompt">root@kali:~# ./display_resume.sh</span>
+            <h1 class="glitch-name blinking-cursor">AHMED ALGOHARY</h1>
+            <p style="color: var(--dim-color);">PENETRATION TESTER | RED TEAMER | MALWARE ANALYST</p>
+            
+            <div class="contact-info">
+                <span>📍 Abu Dhabi, UAE</span>
+                <span>📧 <a href="mailto:hishama58@yahoo.com">hishama58@yahoo.com</a></span>
+                <span>📞 +971 52 299 6331</span>
+                <span>💻 <a href="https://github.com/EvilLizard666" target="_blank">GitHub</a></span>
+                <span>🔗 <a href="#">LinkedIn</a></span>
+            </div>
+        </header>
+
+        <section>
+            <h2>01_SUMMARY</h2>
+            <p>
+                Cybersecurity enthusiast with hands-on experience in penetration testing, vulnerability assessment, and malware analysis. 
+                Proficient in red teaming, ethical hacking, and incident response with a strong foundation in web, network, and Active Directory security. 
+                Passionate about securing digital assets and continuously learning new attack methodologies.
+            </p>
+        </section>
+
+        <section>
+            <h2>02_NOTABLE_ACHIEVEMENTS</h2>
+            <div class="achievement-box">
+                <p>🏆 <strong>HackTheBox Pro Hacker:</strong> Ranked 3rd in Egypt (Best Global Rank: 293)</p>
+                <p>🏆 <strong>TryHackMe:</strong> Top 1% globally</p>
+                <p>🐛 <strong>CVE Contribution:</strong> Discovered & reported CVE-2024-0852 (Security vulnerability in WPScan)</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>03_TECHNICAL_SKILLS</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>[ PENETRATION TESTING ]</strong>
+                    Web, Network, Active Directory, Android
+                </div>
+                <div class="skill-category">
+                    <strong>[ SECURITY TOOLS ]</strong>
+                    Burp Suite, Metasploit, OWASP-ZAP, Nmap, Aircrack-ng, Hydra, Hashcat, Nessus, SQLmap, John The Ripper
+                </div>
+                <div class="skill-category">
+                    <strong>[ SCRIPTING ]</strong>
+                    Python, Bash, PowerShell, C, C++, PHP, JavaScript
+                </div>
+                <div class="skill-category">
+                    <strong>[ NETWORKING ]</strong>
+                    Protocol Analysis, Packet Inspection, Wireshark, Scapy
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>04_CERTIFICATIONS</h2>
+            <ul>
+                <li><strong>eCPPT</strong> - Certified Professional Penetration Tester (ID: 7117385)</li>
+                <li><strong>eJPT</strong> - Certified Junior Penetration Tester (ID: 2175074)</li>
+                <li><strong>HTB Dante Pro Lab</strong> - Certification (ID: HTBCERT-10B7CB8F61)</li>
+                <li><strong>PNPT/PEH</strong> - Practical Ethical Hacking (TCM Security)</li>
+                <li><strong>TryHackMe</strong> - Pentest+, Red Teaming, Pre-Security Paths</li>
+                <li><strong>Cybersecurity Bootcamp</strong> - TrendMicro & CyberTalents</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>05_PROFESSIONAL_EXPERIENCE</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <h3 style="margin: 0; color: var(--text-color);">Security-Meter (Remote)</h3>
+                <span style="color: var(--dim-color);">Penetration Testing Intern | July 2022 - Dec 2022</span>
+                <ul>
+                    <li>Conducted web penetration tests using advanced techniques (OAuth bypass, DOM-XSS, Insecure Deserialization).</li>
+                    <li>Performed Active Directory attacks (AS-REPRoast, Kerberoasting, NTLM Relay, LLMNR Poisoning).</li>
+                    <li>Assisted in Android application penetration testing and exploit development (Buffer Overflow, Code Reuse).</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="margin: 0; color: var(--text-color);">Concentrix</h3>
+                <span style="color: var(--dim-color);">Customer Care Agent - Walmart US | Nov 2024 - Jan 2026</span>
+                <ul>
+                    <li>Provided exceptional customer support resolving inquiries efficiently.</li>
+                    <li>Developed strong problem-solving and communication skills in a fast-paced environment.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>06_PROJECTS</h2>
+            <ul>
+                <li>
+                    <strong>Malware Analysis of Nova Stealer v12.5:</strong> Uncovering the Threat Behind 'Manage Facebook ads strategy.exe'.
+                </li>
+                <li>
+                    <strong>Database Dump:</strong> Dumping full databases through Apache Superset vulnerabilities.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>07_EDUCATION</h2>
+            <p><strong>Bachelor's degree in Economics & Agribusiness</strong><br>
+            Alexandria University, Egypt | 2017-2021</p>
+        </section>
+
+        <footer>
+            <p>EOF -- SYSTEM HALTED</p>
+            <p>&copy; 2026 Ahmed Algohary. Hosted on GitHub Pages.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
