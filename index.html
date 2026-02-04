@@ -11,9 +11,9 @@
 
     <style>
         :root {
-            --bg-color: #0d1117; /* GitHub Dark Dim or Pure Black #000 */
-            --text-color: #00ff41; /* Classic Matrix Green */
-            --accent-color: #ffffff; /* White for headers */
+            --bg-color: #0d1117; 
+            --text-color: #00ff41; 
+            --accent-color: #ffffff; 
             --dim-color: #8b949e;
         }
 
@@ -33,7 +33,6 @@
             padding: 40px 20px;
         }
 
-        /* Typography */
         h1, h2, h3 {
             color: var(--accent-color);
             text-transform: uppercase;
@@ -55,7 +54,6 @@
             color: var(--bg-color);
         }
 
-        /* Header / Hero Section */
         header {
             margin-bottom: 50px;
             border: 2px solid var(--text-color);
@@ -83,7 +81,6 @@
             50% { opacity: 0; }
         }
 
-        /* Sections */
         section {
             margin-bottom: 40px;
         }
@@ -94,10 +91,9 @@
         }
 
         li {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
-        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -110,7 +106,6 @@
             margin-bottom: 5px;
         }
 
-        /* Achievements Box */
         .achievement-box {
             border-left: 4px solid var(--text-color);
             background: rgba(0, 255, 65, 0.05);
@@ -118,7 +113,6 @@
             margin-bottom: 20px;
         }
 
-        /* Contact Info */
         .contact-info {
             display: flex;
             flex-wrap: wrap;
@@ -127,7 +121,6 @@
             margin-top: 10px;
         }
         
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 50px;
@@ -137,7 +130,6 @@
             padding-top: 20px;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 600px) {
             .glitch-name { font-size: 1.8rem; }
             .contact-info { flex-direction: column; gap: 5px; }
@@ -166,8 +158,7 @@
             <h2>01_SUMMARY</h2>
             <p>
                 Cybersecurity enthusiast with hands-on experience in penetration testing, vulnerability assessment, and malware analysis. 
-                Proficient in red teaming, ethical hacking, and incident response with a strong foundation in web, network, and Active Directory security. 
-                Passionate about securing digital assets and continuously learning new attack methodologies.
+                Proficient in red teaming, ethical hacking, and incident response with a strong foundation in web, network, and Active Directory security.
             </p>
         </section>
 
@@ -176,7 +167,7 @@
             <div class="achievement-box">
                 <p>🏆 <strong>HackTheBox Pro Hacker:</strong> Ranked 3rd in Egypt (Best Global Rank: 293)</p>
                 <p>🏆 <strong>TryHackMe:</strong> Top 1% globally</p>
-                <p>🐛 <strong>CVE Contribution:</strong> Discovered & reported CVE-2024-0852 (Security vulnerability in WPScan)</p>
+                <p>🐛 <strong>CVE Contribution:</strong> Discovered & reported CVE-2024-0852</p>
             </div>
         </section>
 
@@ -189,15 +180,11 @@
                 </div>
                 <div class="skill-category">
                     <strong>[ SECURITY TOOLS ]</strong>
-                    Burp Suite, Metasploit, OWASP-ZAP, Nmap, Aircrack-ng, Hydra, Hashcat, Nessus, SQLmap, John The Ripper
+                    Burp Suite, Metasploit, Nmap, Aircrack-ng, Hydra, Hashcat, Nessus, SQLmap
                 </div>
                 <div class="skill-category">
                     <strong>[ SCRIPTING ]</strong>
                     Python, Bash, PowerShell, C, C++, PHP, JavaScript
-                </div>
-                <div class="skill-category">
-                    <strong>[ NETWORKING ]</strong>
-                    Protocol Analysis, Packet Inspection, Wireshark, Scapy
                 </div>
             </div>
         </section>
@@ -205,54 +192,41 @@
         <section>
             <h2>04_CERTIFICATIONS</h2>
             <ul>
-                <li><strong>eCPPT</strong> - Certified Professional Penetration Tester (ID: 7117385)</li>
-                <li><strong>eJPT</strong> - Certified Junior Penetration Tester (ID: 2175074)</li>
-                <li><strong>HTB Dante Pro Lab</strong> - Certification (ID: HTBCERT-10B7CB8F61)</li>
-                <li><strong>PNPT/PEH</strong> - Practical Ethical Hacking (TCM Security)</li>
-                <li><strong>TryHackMe</strong> - Pentest+, Red Teaming, Pre-Security Paths</li>
-                <li><strong>Cybersecurity Bootcamp</strong> - TrendMicro & CyberTalents</li>
+                <li><strong>eCPPT</strong> - Certified Professional Penetration Tester</li>
+                <li><strong>eJPT</strong> - Certified Junior Penetration Tester</li>
+                <li><strong>HTB Dante Pro Lab</strong> - Certification</li>
+                <li><strong>PNPT/PEH</strong> - Practical Ethical Hacking</li>
             </ul>
         </section>
 
         <section>
             <h2>05_PROFESSIONAL_EXPERIENCE</h2>
-            
             <div style="margin-bottom: 20px;">
                 <h3 style="margin: 0; color: var(--text-color);">Security-Meter (Remote)</h3>
                 <span style="color: var(--dim-color);">Penetration Testing Intern | July 2022 - Dec 2022</span>
                 <ul>
-                    <li>Conducted web penetration tests using advanced techniques (OAuth bypass, DOM-XSS, Insecure Deserialization).</li>
-                    <li>Performed Active Directory attacks (AS-REPRoast, Kerberoasting, NTLM Relay, LLMNR Poisoning).</li>
-                    <li>Assisted in Android application penetration testing and exploit development (Buffer Overflow, Code Reuse).</li>
-                </ul>
-            </div>
-
-            <div style="margin-bottom: 20px;">
-                <h3 style="margin: 0; color: var(--text-color);">Concentrix</h3>
-                <span style="color: var(--dim-color);">Customer Care Agent - Walmart US | Nov 2024 - Jan 2026</span>
-                <ul>
-                    <li>Provided exceptional customer support resolving inquiries efficiently.</li>
-                    <li>Developed strong problem-solving and communication skills in a fast-paced environment.</li>
+                    <li>Conducted web penetration tests using advanced techniques.</li>
+                    <li>Performed Active Directory attacks (Kerberoasting, NTLM Relay).</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h2>06_PROJECTS</h2>
+            <h2>06_PROJECTS & WRITE-UPS</h2>
             <ul>
                 <li>
-                    <strong>Malware Analysis of Nova Stealer v12.5:</strong> Uncovering the Threat Behind 'Manage Facebook ads strategy.exe'.
+                    <strong>Malware Analysis:</strong> 
+                    <a href="https://medium.com/@ahmedhisham_66968/manage-facebook-ads-strategy-exe-669304f9f541" target="_blank">
+                        Uncovering the Threat Behind 'Manage Facebook ads strategy.exe' (Nova Stealer v12.5)
+                    </a>
                 </li>
                 <li>
-                    <strong>Database Dump:</strong> Dumping full databases through Apache Superset vulnerabilities.
+                    <strong>Database Exploitation:</strong> 
+                    <a href="https://medium.com/@ahmedhisham_66968/dumping-full-db-through-apache-superset-automation-4d3b6dd25fa9" target="_blank">
+                        Dumping Full Databases through Apache Superset Automation
+                    </a>
                 </li>
             </ul>
-        </section>
-
-        <section>
-            <h2>07_EDUCATION</h2>
-            <p><strong>Bachelor's degree in Economics & Agribusiness</strong><br>
-            Alexandria University, Egypt | 2017-2021</p>
         </section>
 
         <footer>
