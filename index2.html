@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExcuseMaster — The World's Best Excuse Generator</title>
+  <meta name="description" content="Generate hilarious, believable excuses for any situation. Late to work? Forgot a birthday? Skipped the gym? 100+ excuses ready in one click.">
+  <meta name="keywords" content="excuse generator, funny excuses, late to work excuse, skipped gym excuse, forgot birthday excuse, funny text excuses">
+  <meta property="og:title" content="ExcuseMaster — Generate the Perfect Excuse">
+  <meta property="og:description" content="100+ hilarious excuses for work, gym, texts & more. Generate, copy & share in one click. Completely free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://excusemaster.pages.dev">
+  <meta property="og:image" content="https://excusemaster.pages.dev/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ExcuseMaster — Generate the Perfect Excuse">
+  <meta name="twitter:description" content="100+ hilarious excuses for every awkward situation. Try it free!">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- ════════════════════════════════════════════════════════════
+       ★ MONETIZATION STEP 1: Google AdSense
+       1. Go to https://adsense.google.com and sign up
+       2. Add your site and get your publisher ID (ca-pub-XXXXXXX)
+       3. Uncomment the line below and replace YOUR_PUBLISHER_ID
+       ════════════════════════════════════════════════════════════ -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script> -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --card: #161616;
+      --border: #242424;
+      --border-hover: #444;
+      --yellow: #FFE200;
+      --yellow-bg: rgba(255, 226, 0, 0.08);
+      --yellow-border: rgba(255, 226, 0, 0.25);
+      --white: #EEEEE8;
+      --muted: #555555;
+      --success: #4ADE80;
+      --twitter: #1D9BF0;
+      --whatsapp: #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ─── AD SLOTS ─── */
+    /* Replace .ad-placeholder divs below with your actual AdSense <ins> tags */
+    .ad-slot {
+      width: 100%;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      min-height: 90px;
+    }
+    .ad-placeholder {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--muted);
+      text-transform: uppercase;
+      border: 1px dashed var(--border);
+      padding: 16px 40px;
+      text-align: center;
+    }
+    .ad-slot-mid {
+      min-height: 280px;
+      margin: 60px auto;
+      max-width: 960px;
+      padding: 0 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .ad-slot-mid .ad-placeholder { width: 100%; min-height: 250px; }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      padding: 16px 40px;
+      border-bottom: 2px solid var(--yellow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.9rem;
+      color: var(--yellow);
+      letter-spacing: 3px;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .logo span { color: var(--white); }
+
+    .nav-coffee {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1.5px solid var(--yellow);
+      color: var(--yellow);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .nav-coffee:hover { background: var(--yellow); color: #000; }
+
+    /* ─── HERO ─── */
+    .hero {
+      text-align: center;
+      padding: 72px 40px 48px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--yellow-bg);
+      border: 1px solid var(--yellow-border);
+      color: var(--yellow);
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(4rem, 12vw, 10.5rem);
+      line-height: 0.85;
+      letter-spacing: 4px;
+      margin-bottom: 28px;
+    }
+    h1 .accent { color: var(--yellow); }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 40px 40px;
+    }
+    .section-label {
+      font-size: 0.58rem;
+      letter-spacing: 4px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* ─── CATEGORY BUTTONS ─── */
+    .cats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cat {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cat:hover { border-color: var(--border-hover); color: var(--white); }
+    .cat.active { background: var(--yellow); border-color: var(--yellow); color: #000; font-weight: 700; }
+
+    /* ─── GENERATE BUTTON ─── */
+    .generate-wrap {
+      text-align: center;
+      padding: 32px 40px 64px;
+    }
+
+    .generate-btn {
+      background: var(--yellow);
+      border: none;
+      color: #000;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2.2rem;
+      letter-spacing: 5px;
+      padding: 22px 80px;
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      display: inline-block;
+      position: relative;
+    }
+    .generate-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 3px solid transparent;
+      transition: border-color 0.15s;
+    }
+    .generate-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 0 rgba(255,226,0,0.25); }
+    .generate-btn:active { transform: translateY(1px); box-shadow: none; }
+    @keyframes btn-pop { 0%{transform:scale(0.96)} 60%{transform:scale(1.02)} 100%{transform:scale(1)} }
+    .generate-btn.pop { animation: btn-pop 0.3s ease; }
+
+    /* ─── EXCUSE CARD ─── */
+    .excuse-wrap {
+      max-width: 800px;
+      margin: 0 auto 64px;
+      padding: 0 40px;
+      display: none;
+    }
+    .excuse-wrap.show { display: block; }
+
+    @keyframes card-in {
+      from { opacity: 0; transform: scale(0.97) translateY(10px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .excuse-card {
+      border: 2px solid var(--yellow);
+      padding: 48px;
+      background: var(--card);
+      animation: card-in 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+
+    .excuse-cat-label {
+      font-size: 0.55rem;
+      letter-spacing: 4px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .excuse-cat-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--yellow-border);
+    }
+
+    .excuse-text {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+
+    .excuse-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .stars { color: var(--yellow); font-size: 1rem; letter-spacing: 3px; }
+    .credibility { font-size: 0.58rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+
+    .excusenumber { font-size: 0.58rem; letter-spacing: 2px; color: var(--muted); text-align: right; }
+
+    /* Action buttons */
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .act {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--white);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .act:hover { border-color: var(--border-hover); background: var(--surface); }
+    .act.copied { border-color: var(--success); color: var(--success); }
+    .act.tw:hover { border-color: var(--twitter); color: var(--twitter); }
+    .act.wa:hover { border-color: var(--whatsapp); color: var(--whatsapp); }
+
+    /* ─── STATS STRIP ─── */
+    .stats {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3.5rem;
+      color: var(--yellow);
+      letter-spacing: 2px;
+      display: block;
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.58rem; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-top: 4px; display: block; }
+
+    /* ─── HOW IT WORKS ─── */
+    .how {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .how h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3.5rem;
+      letter-spacing: 4px;
+      margin-bottom: 48px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px;
+      background: var(--border);
+    }
+    .step {
+      background: var(--bg);
+      padding: 36px 28px;
+      text-align: left;
+    }
+    .step-num {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 4rem;
+      color: var(--yellow);
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .step h3 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .step p { font-size: 0.72rem; color: var(--muted); line-height: 1.7; }
+
+    /* ─── SUPPORT / TIP JAR ─── */
+    .support {
+      background: var(--yellow-bg);
+      border-top: 1px solid var(--yellow-border);
+      border-bottom: 1px solid var(--yellow-border);
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .support h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3.2rem;
+      letter-spacing: 4px;
+      margin-bottom: 16px;
+    }
+    .support p {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.9;
+    }
+    /* ════════════════════════════════════════════════════════════
+       ★ MONETIZATION STEP 2: Buy Me a Coffee / Ko-fi tip jar
+       Replace the href below with your actual tip jar link:
+       - Buy Me a Coffee: https://buymeacoffee.com/YOUR_USERNAME
+       - Ko-fi:           https://ko-fi.com/YOUR_USERNAME
+       - PayPal.me:       https://paypal.me/YOUR_USERNAME
+       ════════════════════════════════════════════════════════════ -->
+    .coffee-btn {
+      display: inline-block;
+      border: 2px solid var(--yellow);
+      color: var(--yellow);
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.5rem;
+      letter-spacing: 4px;
+      padding: 18px 56px;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .coffee-btn:hover { background: var(--yellow); color: #000; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer p { font-size: 0.6rem; letter-spacing: 1px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    footer a:hover { color: var(--yellow); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      nav, .hero, .section, .generate-wrap, .excuse-wrap, .how, .support, footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .excuse-card { padding: 28px 20px; }
+      .stats { gap: 36px; }
+      .generate-btn { padding: 18px 36px; font-size: 1.8rem; }
+      h1 { letter-spacing: 2px; }
+      .how h2, .support h2 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ★ AD SLOT TOP ★
+       Replace the div below with your Google AdSense leaderboard (728x90) code -->
+  <div class="ad-slot">
+    <div class="ad-placeholder">Advertisement — replace with Google AdSense code</div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a class="logo" href="#">Excuse<span>Master</span></a>
+    <!-- ★ Replace href with your actual tip jar URL ★ -->
+    <a class="nav-coffee" href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer">
+      ☕ Buy me a coffee
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">★ 100% free &nbsp;·&nbsp; no login &nbsp;·&nbsp; instant results</div>
+    <h1>The<br><span class="accent">Perfect</span><br>Excuse</h1>
+    <p class="hero-sub">For every awkward, uncomfortable &amp; morally questionable situation life throws at you</p>
+  </section>
+
+  <!-- CATEGORY SELECTOR -->
+  <div class="section">
+    <p class="section-label">01 — Pick your situation</p>
+    <div class="cats">
+      <button class="cat active" data-cat="work"     onclick="selectCat(this)">💼 Late to work</button>
+      <button class="cat"        data-cat="gym"      onclick="selectCat(this)">🏋️ Skipped gym</button>
+      <button class="cat"        data-cat="text"     onclick="selectCat(this)">📱 Didn't reply</button>
+      <button class="cat"        data-cat="birthday" onclick="selectCat(this)">🎂 Forgot birthday</button>
+      <button class="cat"        data-cat="meeting"  onclick="selectCat(this)">📅 Missed meeting</button>
+      <button class="cat"        data-cat="school"   onclick="selectCat(this)">📚 Missed class</button>
+    </div>
+  </div>
+
+  <!-- GENERATE BUTTON -->
+  <div class="generate-wrap">
+    <button class="generate-btn" id="gen-btn" onclick="generateExcuse()">Generate Excuse</button>
+  </div>
+
+  <!-- EXCUSE RESULT CARD -->
+  <div class="excuse-wrap" id="excuse-wrap">
+    <div class="excuse-card" id="excuse-card">
+      <div class="excuse-cat-label" id="excuse-cat-label">Category</div>
+      <div class="excuse-text" id="excuse-text">"Loading..."</div>
+      <div class="excuse-meta">
+        <div>
+          <div class="stars" id="excuse-stars">★★★★☆</div>
+          <div class="credibility" id="excuse-cred">Credibility Score</div>
+        </div>
+        <div class="excusenumber" id="excuse-num">#0001</div>
+      </div>
+      <div class="actions">
+        <button class="act" id="copy-btn" onclick="copyExcuse()">📋 Copy</button>
+        <a class="act tw" id="tw-btn" href="#" target="_blank" rel="noopener noreferrer">🐦 Tweet it</a>
+        <a class="act wa" id="wa-btn" href="#" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+        <button class="act" onclick="generateExcuse()">🔄 New one</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS STRIP -->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num" id="counter">0</span>
+      <span class="stat-label">Excuses generated today</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100+</span>
+      <span class="stat-label">Unique excuses</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">6</span>
+      <span class="stat-label">Categories</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">0%</span>
+      <span class="stat-label">Guarantee offered</span>
+    </div>
+  </div>
+
+  <!-- ★ AD SLOT MIDDLE ★
+       Replace the div below with your Google AdSense rectangle (300x250) code -->
+  <div class="ad-slot-mid">
+    <div class="ad-placeholder">Advertisement — replace with Google AdSense rectangle (300×250) code</div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Pick a category</h3>
+        <p>Choose the situation you've gotten yourself into. No judgment. We've all been there.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Generate</h3>
+        <p>Hit the big yellow button. We'll pull a handcrafted, human-tested excuse from our vault.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Copy &amp; send</h3>
+        <p>Copy your excuse, or share it directly to Twitter or WhatsApp with one tap.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <h3>Walk away clean</h3>
+        <p>You're on your own from here. We provide the excuse, not the acting skills.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPPORT / TIP JAR -->
+  <div class="support">
+    <h2>Enjoy it?</h2>
+    <p>This site is completely free and always will be. If an excuse saved your skin, consider buying me a coffee to keep the servers running and the excuses flowing.</p>
+    <!-- ★ Replace href with your actual tip jar URL ★ -->
+    <a class="coffee-btn" href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer">
+      ☕ Buy Me a Coffee
+    </a>
+  </div>
+
+  <!-- ★ AD SLOT BOTTOM ★
+       Replace the div below with your Google AdSense leaderboard (728x90) code -->
+  <div class="ad-slot">
+    <div class="ad-placeholder">Advertisement — replace with Google AdSense code</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 ExcuseMaster &nbsp;·&nbsp; Use responsibly. We accept zero liability for consequences.</p>
+    <p>Built with love, questionable ethics, and <a href="https://buymeacoffee.com" target="_blank" rel="noopener">too much coffee ☕</a></p>
+  </footer>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════
+    //  EXCUSE DATABASE
+    // ═══════════════════════════════════════════════════════════
+    const db = {
+      work: {
+        label: "Late to Work",
+        ratings: [
+          { stars: "★★★★★", label: "Oscar-worthy" },
+          { stars: "★★★★☆", label: "Pretty believable" },
+          { stars: "★★★☆☆", label: "Could work" },
+          { stars: "★★☆☆☆", label: "Bold strategy" },
+        ],
+        list: [
+          "There was a massive spider on my steering wheel. I had to wait for it to leave on its own terms. I didn't feel comfortable rushing it.",
+          "My smart home updated its firmware overnight and locked me inside. I had to negotiate with my thermostat for 40 minutes.",
+          "A school of geese staged a sit-in at the intersection near my house. Animal control said there was 'nothing they could do.'",
+          "I was in such a deep state of productivity visualization that I lost track of time. Technically, I was already working.",
+          "My neighbor's emotional support peacock escaped and blocked my car in the driveway. You simply cannot rush a peacock.",
+          "The GPS had a spiritual crisis and routed me through three towns I've never heard of.",
+          "I read that arriving exactly on time creates anxious energy for the whole team. I was protecting morale.",
+          "I was feeding a stray cat. One turned into seven. I couldn't play favorites.",
+          "My horoscope explicitly warned against 'rushing metal objects in forward motion.' My safety is worth more than punctuality.",
+          "I got emotionally invested in a documentary about competitive cheese rolling and couldn't leave until the winner was declared.",
+        ]
+      },
+      gym: {
+        label: "Skipped Gym",
+        ratings: [
+          { stars: "★★★☆☆", label: "Look, we've all been there" },
+          { stars: "★★☆☆☆", label: "Bold strategy" },
+          { stars: "★☆☆☆☆", label: "Nobody believes this" },
+          { stars: "★★★★☆", label: "Surprisingly solid" },
+        ],
+        list: [
+          "I read that rest days are actually MORE important than workout days. I'm not skipping. I'm optimizing.",
+          "I did three flights of stairs this morning. That's essentially a HIIT session if you squint hard enough.",
+          "My gym shoes started a new chapter: retirement. It would have been disrespectful to make them work on their last day.",
+          "I was planning to go but then I got into a very intense stretch of thinking about going. I burned a lot of mental calories.",
+          "The gym was probably packed. I was being considerate of other members' personal space.",
+          "I pulled a muscle reaching for my gym bag. Recovery is part of the process.",
+          "I did 12 reps of scrolling through workout videos. My thumb is exhausted.",
+          "The science says working out on this specific day of the week is actually counterproductive. I forget where I read that but it was very official.",
+          "I was going to go, but my body sent me a very clear signal to rest. The signal was that I sat down and immediately felt comfortable.",
+          "I'm tapering. You taper before a big event. The big event hasn't been scheduled yet, but I'll be ready.",
+        ]
+      },
+      text: {
+        label: "Didn't Reply to Text",
+        ratings: [
+          { stars: "★★★☆☆", label: "Questionable but usable" },
+          { stars: "★★★★☆", label: "Pretty believable" },
+          { stars: "★☆☆☆☆", label: "They know" },
+          { stars: "★★☆☆☆", label: "Risky move" },
+        ],
+        list: [
+          "I opened your message, had a genuinely profound thought about it, and then my brain quietly deleted the memory to make room for song lyrics.",
+          "My phone has been acting extremely weird lately. Specifically when your messages come through. Very strange.",
+          "I was in a zone. You know how it is. You probably don't know exactly how it is. But I was firmly in one.",
+          "I read it. I thought about it. I composed three different responses in my head. None of them felt quite right. And then dinner happened.",
+          "I was going through my digital wellness arc. I've emerged. I'm back now.",
+          "I'm terrible at texting. Have always been. This is a known fact about me. I'm shocked this is still coming up.",
+          "I genuinely thought I replied. I can see the reply clearly in my head. My brain really committed to that particular bit.",
+          "I was asleep. For eleven hours. Starting at 2pm. It's complicated, and I'm not ready to talk about it.",
+          "I've been processing. I'll let you know when the processing is complete.",
+          "Notification anxiety. My doctor's aware.",
+        ]
+      },
+      birthday: {
+        label: "Forgot a Birthday",
+        ratings: [
+          { stars: "★★★☆☆", label: "Worth a shot" },
+          { stars: "★★☆☆☆", label: "Bold strategy" },
+          { stars: "★★★★☆", label: "Surprisingly solid" },
+          { stars: "★☆☆☆☆", label: "You're in trouble" },
+        ],
+        list: [
+          "I've been so focused on making this entire year amazing for you that I lost track of the specific date it started.",
+          "In my heart, every single day is your birthday. That's not an excuse — that's devotion.",
+          "I was planning something really big and it's taking longer than expected. (I have not started planning anything.)",
+          "The Gregorian calendar is a construct and I refuse to let it dictate my expressions of affection.",
+          "I remembered. I just wanted to be the last person to say it so it lingers longest. Happy birthday.",
+          "I had a vision of your face at 8am and smiled for the whole day. That's spiritually equivalent to a card.",
+          "I was getting your gift. It's still being curated. It's a surprise. It's a very, very long surprise.",
+          "My phone's calendar app deleted all my events. Which is also why I've been mysteriously missing every other appointment this month.",
+          "I've been celebrating you internally for weeks. The external part just got delayed.",
+        ]
+      },
+      meeting: {
+        label: "Missed a Meeting",
+        ratings: [
+          { stars: "★★★☆☆", label: "Plausible deniability" },
+          { stars: "★★★★☆", label: "Pretty believable" },
+          { stars: "★☆☆☆☆", label: "Your boss is not convinced" },
+          { stars: "★★☆☆☆", label: "Bold strategy" },
+        ],
+        list: [
+          "I was in deep preparation mode for the meeting. I was so prepared I lost track of when the meeting was.",
+          "I had a scheduling conflict with myself. I lost.",
+          "The invite went to spam. My spam filter has been wildly overzealous since I let it 'learn my preferences.'",
+          "I had the time zone wrong. I showed up perfectly — just for yesterday's version of the meeting.",
+          "I was there. I was listening. My camera was off because of background distractions. (I was not there.)",
+          "I was pulling together some final data points. Then other data points happened. It spiraled.",
+          "I got the recurrence confused. I thought this was the one we cancelled. Which one did we cancel?",
+          "My power went out for exactly the duration of the meeting. The timing was genuinely remarkable.",
+          "I was blocked by a calendar notification reminding me to prepare for a meeting. I spiraled preparing and missed the actual meeting.",
+        ]
+      },
+      school: {
+        label: "Missed Class",
+        ratings: [
+          { stars: "★★☆☆☆", label: "Professor is skeptical" },
+          { stars: "★★★☆☆", label: "Worth trying" },
+          { stars: "★★★★☆", label: "Surprisingly solid" },
+          { stars: "★☆☆☆☆", label: "They've heard this one" },
+        ],
+        list: [
+          "I was there in spirit. I also took extremely thorough notes — in my imagination.",
+          "I was doing field research. The field was my bed. The research was critical.",
+          "I had a prior engagement with my existential crisis and it ran significantly over schedule.",
+          "I attended the first 20 minutes mentally before my connection dropped.",
+          "I was networking. With myself. About topics only tangentially related to class.",
+          "I've been auditing the course informally through osmosis and a curated YouTube playlist.",
+          "My alarm went off but I interpreted it as a suggestion rather than a hard requirement.",
+          "I was sick. My symptoms included: tiredness, unusual comfort, and a strong disinclination to leave bed.",
+          "I was running a personal experiment into what happens when you miss one class. Preliminary results: nothing conclusive yet.",
+          "I reviewed the slides extensively — specifically the title slide — before concluding I had covered the key material.",
+        ]
+      }
+    };
+
+    // ═══════════════════════════════════════════════════════════
+    //  STATE
+    // ═══════════════════════════════════════════════════════════
+    let currentCat = 'work';
+    let lastIdx = -1;
+    let sessionCount = 0;
+    let totalCount = parseInt(localStorage.getItem('em_total') || '0') || Math.floor(Math.random() * 600) + 1400;
+
+    // ═══════════════════════════════════════════════════════════
+    //  COUNTER ANIMATION
+    // ═══════════════════════════════════════════════════════════
+    function animateCounter(target) {
+      const el = document.getElementById('counter');
+      let current = 0;
+      const duration = 1200;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(eased * target);
+        el.textContent = current.toLocaleString();
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  CATEGORY SELECTION
+    // ═══════════════════════════════════════════════════════════
+    function selectCat(btn) {
+      document.querySelectorAll('.cat').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCat = btn.dataset.cat;
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  GENERATE EXCUSE
+    // ═══════════════════════════════════════════════════════════
+    function generateExcuse() {
+      const cat = db[currentCat];
+      let idx;
+      do { idx = Math.floor(Math.random() * cat.list.length); }
+      while (idx === lastIdx && cat.list.length > 1);
+      lastIdx = idx;
+
+      const excuse = cat.list[idx];
+      const rating = cat.ratings[Math.floor(Math.random() * cat.ratings.length)];
+
+      // Update card content
+      document.getElementById('excuse-cat-label').textContent = cat.label;
+      document.getElementById('excuse-text').textContent = '\u201C' + excuse + '\u201D';
+      document.getElementById('excuse-stars').textContent = rating.stars;
+      document.getElementById('excuse-cred').textContent = rating.label;
+
+      // Increment counters
+      totalCount++;
+      sessionCount++;
+      localStorage.setItem('em_total', totalCount);
+      document.getElementById('excuse-num').textContent = '#' + String(totalCount).padStart(4, '0');
+      document.getElementById('counter').textContent = totalCount.toLocaleString();
+
+      // Share links
+      const shareText = encodeURIComponent('\u201C' + excuse + '\u201D\n\nGenerated by ExcuseMaster \uD83D\uDE02 https://excusemaster.pages.dev #ExcuseMaster');
+      document.getElementById('tw-btn').href  = 'https://twitter.com/intent/tweet?text=' + shareText;
+      document.getElementById('wa-btn').href  = 'https://wa.me/?text=' + shareText;
+
+      // Reset copy button
+      const copyBtn = document.getElementById('copy-btn');
+      copyBtn.textContent = '📋 Copy';
+      copyBtn.classList.remove('copied');
+
+      // Animate generate button
+      const genBtn = document.getElementById('gen-btn');
+      genBtn.classList.remove('pop');
+      void genBtn.offsetWidth;
+      genBtn.classList.add('pop');
+
+      // Show and animate card
+      const wrap = document.getElementById('excuse-wrap');
+      const card = document.getElementById('excuse-card');
+      wrap.classList.add('show');
+      card.style.animation = 'none';
+      void card.offsetWidth;
+      card.style.animation = '';
+
+      // Smooth scroll to result
+      setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  COPY TO CLIPBOARD
+    // ═══════════════════════════════════════════════════════════
+    function copyExcuse() {
+      const text = document.getElementById('excuse-text').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '📋 Copy';
+          btn.classList.remove('copied');
+        }, 2500);
+      }).catch(() => {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '📋 Copy'; btn.classList.remove('copied'); }, 2500);
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  INIT
+    // ═══════════════════════════════════════════════════════════
+    window.addEventListener('DOMContentLoaded', () => {
+      animateCounter(totalCount);
+    });
+  </script>
+
+</body>
+</html>
